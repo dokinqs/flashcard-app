@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  before_action :set_tag, only: [:show, :update, :destroy]
+  before_action :set_tag, only: [:show, :flashcards, :update, :destroy]
 
   # GET /tags
   def index
@@ -38,6 +38,10 @@ class TagsController < ApplicationController
     @tag.destroy
   end
 
+  def flashcards
+    @tag.flashcards
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tag
