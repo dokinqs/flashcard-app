@@ -38,8 +38,17 @@ class FlashcardsController < ApplicationController
     @flashcard.destroy
   end
 
+  
   def tags
     @flashcard.tags
+  end
+
+  def list
+    @flashcards = Flashcard.all
+  end
+ 
+  def show
+    @flashcard = Flashcard.find(params[:id])
   end
 
   private
