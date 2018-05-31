@@ -39,17 +39,9 @@ class FlashcardsController < ApplicationController
   end
 
   
-  def tags
-    @flashcard.tags
-  end
-
-  def list
-    @flashcards = Flashcard.all
-  end
- 
-  def show
-    @flashcard = Flashcard.find(params[:id])
-  end
+  # def tags
+  #   @flashcard.tags
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
