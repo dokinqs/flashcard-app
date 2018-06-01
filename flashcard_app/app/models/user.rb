@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
   has_many :flashcards, dependent: :destroy
   has_many :tags, dependent: :destroy
 

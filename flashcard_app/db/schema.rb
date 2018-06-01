@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2018_05_31_195326) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password"
+    t.string "password_digest"
   end
 
   add_foreign_key "decks", "subjects"

@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-demo_user = User.create({login: "demo@gmail.com", name: "demo", password: "demopw"})
+# demo_user = User.create({login: "demo@gmail.com", name: "demo", password_digest: "demopw"})
+demo_user = User.create({login: "demo@gmail.com", name: "demo", password: 'samplepw', password_confirmation: 'samplepw'})
 
 Flashcard.destroy_all
 Flashcard.create(question: "Sample Flashcard Q", answer: "Sample Flashcard A", user_id: demo_user.id)
