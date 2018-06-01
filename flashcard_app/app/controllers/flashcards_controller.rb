@@ -4,6 +4,7 @@ class FlashcardsController < ApplicationController
 
   # GET /flashcards
   def index
+    # if current_user
     # @flashcards = Flashcard.all
 
     # render json: @flashcards
@@ -14,8 +15,6 @@ class FlashcardsController < ApplicationController
         {'question': 'q3', 'answer': 'a3'}
       ]
     }.to_json
-
-    # if current_user
 
     # else
 
