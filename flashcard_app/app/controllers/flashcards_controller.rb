@@ -1,4 +1,5 @@
 class FlashcardsController < ApplicationController
+  before_action :authenticate_user
   before_action :set_flashcard, only: [:show, :tags, :update, :destroy]
 
   # GET /flashcards
@@ -13,6 +14,12 @@ class FlashcardsController < ApplicationController
         {'question': 'q3', 'answer': 'a3'}
       ]
     }.to_json
+
+    # if current_user
+
+    # else
+
+    # end
   end
 
   # GET /flashcards/1
