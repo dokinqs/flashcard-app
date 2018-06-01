@@ -25,8 +25,11 @@ class App extends Component {
     return (
       <div className="App">
         <Home />
-        <div>hi karen</div>
+        <div>react flashcardzzz</div>
         <div>{JSON.stringify(this.state.flashcards)}</div>
+        {this.state.flashcards.map(flashcard => {
+          return <p key={flashcard.id}> Question: {flashcard.question}, Answer: {flashcard.answer} </p>
+        })}
         <div>{BASE_URL}</div>
       </div>
     );
