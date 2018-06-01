@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -9,22 +9,24 @@ class App extends Component {
     super();
 
     this.state = {
-      cards: []
+      flashcards: []
     };
   }
   
   componentDidMount() {
-    fetch(`${BASE_URL}/cards`)
+    fetch(`${BASE_URL}/flashcards`)
       .then(resp => resp.json())
       .then(data => this.setState({
-        cards: data.cards
+        flashcards: data.flashcards
       }));
   }
+  
   render() {
     return (
       <div className="App">
+        <Home />
         <div>hi karen</div>
-        <div>JSON.stringify(this.state.juices)</div>
+        <div>{JSON.stringify(this.state.flashcards)}</div>
         <div>{BASE_URL}</div>
       </div>
     );
