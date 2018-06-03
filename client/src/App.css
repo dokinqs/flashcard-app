@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Sunflower:300');
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Shadows+Into+Light');
 
 .App {
   text-align: center;
@@ -32,8 +32,22 @@
 body {
   background: url('https://images.unsplash.com/photo-1504228218423-a8ef68ca2c3a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d22c1434f508b55c6382565a239307c6&auto=format&fit=crop&w=2000&q=80'), black;
   color: white;
-  font-family: 'Sunflower', sans-serif;
+  font-family: 'Pacifico', sans-serif;
   text-align: center;
+}
+
+nav ul li {
+  list-style-type: none;
+  text-decoration: none;
+  display: inline;
+  padding: 2vw;
+  margin: 1px;
+  background-color: white;
+  text-emphasis: center;
+  font-size: 1.5vw;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #001a2c;
 }
 
 form {
@@ -44,7 +58,12 @@ form {
   width: 300px;
 }
 
-button {
+div {
+  background: rgba(0, 0, 0, .2);
+  width: 60vw;
+}
+
+button, .button {
   margin: 10px;
   font-size: 20px;
   background: rgba(0, 0, 0, .8);
@@ -64,4 +83,20 @@ button:hover, button:focus{
 }
 button:active {
   background: #d4d4d4;
+}
+
+a {
+  text-decoration: none;
+  color: #d6edff;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+a:hover {
+  /* background: linear-gradient(to left, #525252, #fff, #011238); */
+  background: #252525;
+}
+
+.flashcard-list, .font {
+  font-family: 'Shadows Into Light', sans-serif;
 }

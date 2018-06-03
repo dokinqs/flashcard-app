@@ -22,7 +22,7 @@ export default class LoginForm extends Component {
       ],
       email: '',
       name: '',
-      password:'',
+      password: '',
       isLoggedIn: null,
       redirectHome: false
     };
@@ -105,7 +105,7 @@ export default class LoginForm extends Component {
       <div>
         <form>
           {/* {this.state.redirectHome && <Redirect to='/'/>} */}
-          <h1>LOGIN</h1>
+          <h2>LOGIN</h2>
           <label htmlFor="email">Email: </label>
           <br />
           <input

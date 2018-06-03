@@ -12,15 +12,15 @@ export default class Flashcards extends Component {
         {_.map(this.props.flashcards, flashcard => (
 
           <div key={flashcard.id} className='flashcard-list'>
-            <BrowserRouter>
-              <Link to ={`flashcards/${flashcard.id}`}>
+            {/* <BrowserRouter> */}
+              <Link to={`/flashcards/${flashcard.id}`}>
                 <div key={flashcard.id} >
-                  #: {flashcard.id}
+                  # {flashcard.id}
                   <p>Q: {flashcard.question}</p>
                   <p>A: {flashcard.answer}</p>
                 </div>
               </Link>
-            </BrowserRouter>
+            {/* </BrowserRouter> */}
 
           </div> 
       ))}

@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
+import _ from 'lodash';
+import jwt from 'jwt-js';
 import Home from './components/Home';
 import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm';
 import Flashcard from './components/Flashcard';
 import Flashcards from './components/Flashcards';
-import CreateFlashcard from './components/CreateFlashcard';
-
+import NewFlashcard from './components/NewFlashcard';
+import Nav from './components/Nav';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -15,25 +18,27 @@ class App extends Component {
     super();
 
     this.state = {
-      flashcards: 
-      [
-        {
-          question: 'qqq',
-          answer: 'aaa'
-        },
-        {
-          question: 'qqq2',
-          answer: 'aaa2'
-        }
-      ],
+      flashcards: [],
+      // [
+      //   {
+      //     question: 'qqq',
+      //     answer: 'aaa'
+      //   },
+      //   {
+      //     question: 'qqq2',
+      //     answer: 'aaa2'
+      //   }
+      // ],
       email: '',
       name: '',
       password:'',
       isLoggedIn: null
     };
     this.getFlashcards = this.getFlashcards.bind(this);
-    this.logout = this.logout.bind(this);
+    this.findFlashcard = this.findFlashcard.bind(this);
     this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
+    this.handleRegister = this.handleRegister.bind(this);
     this.isLoggedIn = this.isLoggedIn.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -54,7 +59,12 @@ class App extends Component {
     }
 
     fetch(`${BASE_URL}/flashcards`, init)
-    .then(resp => resp.json())
+    .then(resp => {
+      if (!resp.ok) {
+        throw Error('oops: ', resp.message);
+      }
+      return resp.json();
+    })
     .then(data => this.setState({
       flashcards: data
     }))
@@ -64,17 +74,18 @@ class App extends Component {
     console.log('isLoggedIn: ', this.isLoggedIn());
   }
 
+  findFlashcard(id) {
+    console.log('find flashcards.. ', this.state.flashcards);
+    // const flashcard = _.filter(this.state.flashcards, t => (t.id == parseInt(id, 10)));
+    const flashcard = this.state.flashcards.filter(t => (t.id == parseInt(id, 10)));
+    console.log('find filtered flashcard: ', flashcard);
+    return flashcard;
+    // return flashcard[0];
+  }
+
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
-    })
-  }
-
-  logout() {
-    localStorage.removeItem("jwt");
-    this.setState({
-      isLoggedIn: false,
-      flashcards: []
     })
   }
 
@@ -90,15 +101,65 @@ class App extends Component {
     .then(res => res.json())
     .then(res => localStorage.setItem("jwt", res.jwt))
     .then(() => this.setState({
-      isLoggedIn: true,
+      isLoggedIn: true
     }))
     .then(() => this.getFlashcards())
     .catch(err => console.log(err))
   }
       
+  logout() {
+    localStorage.removeItem("jwt");
+    this.setState({
+      isLoggedIn: false,
+      flashcards: []
+    })
+  }
+
+  registerReq(creds) {
+    const url = `${BASE_URL}/user_token`;
+    const body = {"user": {"email": this.state.email, "password": this.state.password, "password_confirmation": this.state.password}}
+    const init = { method: 'POST',
+                    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+                    mode: 'cors',
+                    body: JSON.stringify(body),
+                    }
+    fetch(url, init)
+    .then(res => res.json())
+    .then(res => localStorage.setItem("jwt", res.jwt))
+    .then(() => this.setState({
+      isLoggedIn: true
+    }))
+    .then(() => this.getFlashcards())
+    .catch(err => console.log(err))
+  }
+  //   fetch('/register', {
+  //     method: 'POST',
+  //     body: JSON.stringify(creds),
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     }
+  //   })
+  //     .then(resp => {
+  //       if (!resp.ok) throw new Error(resp.statusMessage);
+  //       return resp.json();
+  //     })
+  //     .then(respBody => {
+  //       console.log(respBody);
+  //       localStorage.setItem('authToken', respBody.token);
+  //       this.setState({
+  //         currentUser: jwt.decodeToken(respBody.token).payload
+  //       })
+  //     })
+  // }
+
+  handleRegister(creds) {
+    this.registerReq(creds);
+  }
+
   componentDidMount() {
     this.isLoggedIn();
     this.getFlashcards();
+    this.findFlashcard();
   }
 
   render() {
@@ -106,69 +167,12 @@ class App extends Component {
     // const display = this.state.isLoggedIn ? this.state.flashcards.map(flashcard => {
     //   return <p key={flashcard.id}> QUESTION:{flashcard.question}, ANSWER:{flashcard.answer} </p>
     // }) : "UNAUTHORIZED"
-
-    // const display = this.state.flashcards.map(f => {
-    //   return (
-    //   <div>
-    //     <h2>{f.question}</h2>
-    //     <h3>{f.answer}</h3>
-    //   </div>
-    //   );
-    // })
-
-    console.log('rendered typeof this.state.flashcards: ', typeof(this.state.flashcards))
-    // return (
-    //   <div>
-    //   <ul>
-    //   {
-    //     this.state.flashcards.map(flashcard => 
-    //       <li key={flashcard.id}>{flashcard.question}</li>
-    //     )
-    //   }
-    //   </ul>
-    //   </div>
-    // )
+    console.log('rendered typeof this.state.flashcards: ', typeof(this.state.flashcards));
     return (
       <div className="App">
-        {/* <Home /> */}
-        {/* <div>{JSON.stringify(this.state.flashcards)}</div> */}
-        {/* <form>
-          <label htmlFor="email">Email: </label>
-          <br />
-          <input
-            name="email"
-            onChange={this.handleChange}
-            value={this.state.email}
-            type="email"
-          />
-          <br /><br />
-          <label htmlFor="name">Username: </label>
-          <br />
-          <input
-            name="name"
-            onChange={this.handleChange}
-            value={this.state.name}
-            type="name"
-          />
-          <br /><br />
-          <label htmlFor="password">Password:</label>
-          <br />
-          <input
-            name="password"
-            onChange={this.handleChange}
-            value={this.state.value}
-            type="password"
-          />
-          </form>
-          <br />
-
-          <button onClick={this.login}>Login</button>
-          <button onClick={this.logout}>Logout</button>
-          <button onClick={this.getFlashcards}>Get Flashcards</button> */}
-
-          {/* <div> {display} </div>  */}
-
-          <BrowserRouter>
+          <Nav />
+          {/* <BrowserRouter> */}
+          {/* <Nav /> */}
           <Switch>
 
             <Route exact path="/login" 
@@ -179,38 +183,45 @@ class App extends Component {
                 logout={this.logout}
               /> 
             )} />
-            {/* <Route exact path="/register" component={(props) => (
+            <Route exact path="/register" component={(props) => (
               <RegisterForm
               {...props}
-                register={this.register}
+                handleRegister={this.handleRegister}
               /> )} 
-            /> */}
+            />
+
+            <Route exact path="/flashcards/new" component={(props)=> (
+              <NewFlashcard
+                {...props}
+                handleNewFlashcard={this.handleNewFlashcard} 
+                newFlashcard={this.state.newFlashcard}
+              />
+            )} />
+            
+            {/* <Route exact path="/flashcards/:id" render={(props)=> ( */}
+            <Route exact path="/flashcards/:id" component={(props)=> (
+
+              <Flashcard 
+                {...props}
+                flashcard={this.findFlashcard(props.match.params.id)}
+                id={props.match.params.id}
+              />
+            )} />
+
             <Route exact path="/flashcards" component={(props)=> (
               <Flashcards
                 {...props}
                 flashcards={this.state.flashcards}
               />
             )} />
-            <Route exact path="/flashcards/:id" component={(props)=> (
-              <Flashcard 
-                {...props}
-                flashcards={this.state.flashcards}
-              />
-            )} />
-            <Route exact path="/flashcards/create" component={(props)=> (
-              <CreateFlashcard
-                {...props}
-                handleCreateFlashcard={this.handleCreateFlashcard} 
-                flashcard={this.state.createdFlashcard}
-              />
-            )} />
-            <Route path='/' component={(props) => (
+        
+            <Route exact path='/' component={(props) => (
               <Home
 
               /> 
             )} />
         </Switch>
-        </BrowserRouter>
+        {/* </BrowserRouter> */}
       </div>
     );
   }
