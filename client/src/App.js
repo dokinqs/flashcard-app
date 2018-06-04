@@ -95,10 +95,10 @@ class App extends Component {
     return flashcard[0];
   }
 
-  createFlashcard(f) {
+  createFlashcard(flashcard) {
     fetch('/flashcards/new', {
       method: 'POST',
-      body: JSON.stringify(f),
+      body: JSON.stringify(flashcard),
       headers: {
         'content-type': 'application/json'
       }

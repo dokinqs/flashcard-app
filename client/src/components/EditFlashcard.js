@@ -3,7 +3,7 @@ import FlashcardForm from './FlashcardForm';
 
 export default class EditFlashcard extends Component {
   render() {
-    const { flashcard, id} = this.props
+    const { flashcard, id } = this.props
     return (
       <div>
         <h1>Edit Flashcard #{id}</h1>

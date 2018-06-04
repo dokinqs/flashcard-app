@@ -25,7 +25,7 @@ export default class NewFlashcard extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.createf(this.state.flashcard);
+		this.props.func(this.state.flashcard);
 		this.setState({
 			redirectHome: true
 		});
