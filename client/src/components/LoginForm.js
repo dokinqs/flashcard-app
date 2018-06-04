@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect, BrowserRouter, Link } from 'react-router-dom';
-import _ from 'lodash';
+import { Redirect, Link } from 'react-router-dom';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -102,10 +101,11 @@ export default class LoginForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="form">
+        {/* {this.state.redirectHome && <Redirect to='/'/>} */}
+        <br/>
+        <h2 className="o">LOGIN</h2>
         <form>
-          {/* {this.state.redirectHome && <Redirect to='/'/>} */}
-          <h2>LOGIN</h2>
           <label htmlFor="email">Email: </label>
           <br />
           <input
@@ -136,7 +136,7 @@ export default class LoginForm extends Component {
             placeholder="samplepw"
           />
           </form>
-          <br />
+
           <button onClick={this.login}>Login</button><br/>
           <button onClick={this.logout}>Logout</button>
       </div>

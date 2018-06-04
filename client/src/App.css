@@ -1,34 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico|Shadows+Into+Light');
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 body {
   background: url('https://images.unsplash.com/photo-1504228218423-a8ef68ca2c3a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d22c1434f508b55c6382565a239307c6&auto=format&fit=crop&w=2000&q=80'), black;
   color: white;
@@ -48,6 +19,16 @@ nav ul li {
   font-weight: bold;
   letter-spacing: 3px;
   color: #001a2c;
+  border-radius: 5px;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.home-page {
+  padding: 20px 0;
+  margin: 20px 0;
 }
 
 form {
@@ -64,24 +45,25 @@ div {
 }
 
 button, .button {
-  margin: 10px;
-  font-size: 20px;
+  margin: 5px;
+  font-size: 18px;
   background: rgba(0, 0, 0, .8);
   cursor: pointer;
   color: white;
   border: 1px solid white;
   border-radius: 5px;
-  padding: 10px;
-  margin: 10px;
+  padding: 5px;
   height: 50px;
   width: 100px;
   outline: none;
 }
-button:hover, button:focus{
+button:hover, button:focus, 
+.button:hover, .button:focus{
   border-radius: 20px;
   background: #222;
 }
-button:active {
+button:active, 
+.button:active {
   background: #d4d4d4;
 }
 
@@ -91,12 +73,54 @@ a {
   font-weight: bold;
   font-size: 1.3em;
 }
-
 a:hover {
-  /* background: linear-gradient(to left, #525252, #fff, #011238); */
-  background: #252525;
+  background: linear-gradient(to right, #525252,#011238), #252525;
 }
 
-.flashcard-list, .font {
+.flashcard-list {
   font-family: 'Shadows Into Light', sans-serif;
+}
+
+.font {
+  font-family: 'Shadows Into Light', sans-serif;
+  color: #c8eeff;
+  font-size: 70px;
+}
+
+.b {
+  background-color: #c8eeff;
+}
+.b:hover {
+  background-color: white;
+}
+.g:hover {
+  background-color: #dcffc8;
+}
+.y:hover {
+  background-color: #fffec8;
+}
+.form .o {
+  color: #ffe7c8;
+}
+nav .o:hover {
+  background-color: #ffe7c8;
+}
+.form .r {
+  color: #ffd3c8;
+}
+nav .r:hover {
+  background-color: #ffd3c8;
+}
+
+.q {
+  font-style: italic;
+  color: #dcffc8;
+}
+
+.flip {
+  border: 1px solid white;
+  max-width: 500px;
+  min-width: 390px;
+  min-height: 300px;
+  margin: 0 auto;
 }

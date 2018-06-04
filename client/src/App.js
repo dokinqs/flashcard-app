@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import _ from 'lodash';
 import jwt from 'jwt-js';
+import Nav from './components/Nav';
 import Home from './components/Home';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import Flashcard from './components/Flashcard';
 import Flashcards from './components/Flashcards';
-import NewFlashcard from './components/NewFlashcard';
-import Nav from './components/Nav';
+import CreateFlashcard from './components/CreateFlashcard';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -31,7 +31,7 @@ class App extends Component {
       // ],
       email: '',
       name: '',
-      password:'',
+      password: '',
       isLoggedIn: null
     };
     this.getFlashcards = this.getFlashcards.bind(this);
@@ -81,6 +81,23 @@ class App extends Component {
     console.log('find filtered flashcard: ', flashcard);
     return flashcard;
     // return flashcard[0];
+  }
+
+  createFlashcard(f) {
+    fetch('/flashcards/new', {
+      method: 'POST',
+      body: JSON.stringify(f),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(resBody => {
+      this.setState((prevState, props) => {
+        return {
+          flashcards: prevState.flashcard.concat(resBody.data)
+        }
+      })
+    })
   }
 
   handleChange(e) {
@@ -168,10 +185,12 @@ class App extends Component {
     //   return <p key={flashcard.id}> QUESTION:{flashcard.question}, ANSWER:{flashcard.answer} </p>
     // }) : "UNAUTHORIZED"
     console.log('rendered typeof this.state.flashcards: ', typeof(this.state.flashcards));
+    const { flashcards } = this.state;
+    console.log('fc ',this.state.flashcards);
     return (
       <div className="App">
           <Nav />
-          {/* <BrowserRouter> */}
+
           {/* <Nav /> */}
           <Switch>
 
@@ -191,13 +210,14 @@ class App extends Component {
             />
 
             <Route exact path="/flashcards/new" component={(props)=> (
-              <NewFlashcard
+              <CreateFlashcard
                 {...props}
-                handleNewFlashcard={this.handleNewFlashcard} 
-                newFlashcard={this.state.newFlashcard}
+                handleCreateFlashcard={this.handleCreateFlashcard} 
+                createFlashcard={this.state.createFlashcard}
+                isLoggedIn={this.state.isLoggedIn}
               />
             )} />
-            
+
             {/* <Route exact path="/flashcards/:id" render={(props)=> ( */}
             <Route exact path="/flashcards/:id" component={(props)=> (
 
@@ -221,7 +241,7 @@ class App extends Component {
               /> 
             )} />
         </Switch>
-        {/* </BrowserRouter> */}
+
       </div>
     );
   }

@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 export default class Home extends Component {
   render() {
     return (
-      <div>
+      <div class="home-page">
         {/* <Nav /> */}
-        <h1 class="font">Flashcardzzz</h1>
-        <Link to='/flashcards'>See All Flashcards</Link>
+        <h1 className="font">Flashcardzzz</h1>
+        <br/><br/>
+        <Link to='/flashcards'>Start Studying</Link>
       </div>
     )
   }

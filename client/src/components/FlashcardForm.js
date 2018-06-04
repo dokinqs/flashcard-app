@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect, BrowserRouter, Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import _ from 'lodash';
 
 export default class NewFlashcard extends Component {
@@ -8,7 +8,7 @@ export default class NewFlashcard extends Component {
 		this.state = {
 			flashcard: Object.assign({
 				question: ''
-				// user_id: this.props.user.id
+
 			}, props.flashcard)
 		}
 	}

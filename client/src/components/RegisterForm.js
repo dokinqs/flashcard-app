@@ -36,21 +36,10 @@ export default class RegisterForm extends Component {
     return (
       <div className="form">
         <br />
-        <h2>SIGN UP</h2>
+        <h2 className="r">SIGN UP</h2>
         <form onSubmit={this.handleSubmit} className="login" method="post">
           {this.state.redirectHome && <Redirect to='/' />}
-          <label htmlFor="username">
-            <input
-              placeholder="Create a Username"
-              type="text"
-              onChange={this.handleInputChange}
-              value={this.state.username}
-              name="username"
-            />
-          </label>
-          <br />
-          <br />
-          <label htmlFor="email">
+          <label htmlFor="email">Email:<br/>
             <input
               placeholder="Email Address"
               type="text"
@@ -61,7 +50,18 @@ export default class RegisterForm extends Component {
           </label>
           <br />
           <br />
-          <label htmlFor="password">
+          <label htmlFor="username">Username:<br/>
+            <input
+              placeholder="Create a Username"
+              type="text"
+              onChange={this.handleInputChange}
+              value={this.state.username}
+              name="username"
+            />
+          </label>
+          <br />
+          <br />
+          <label htmlFor="password">Password:<br/>
             <input
               placeholder="Create a password"
               type="password"

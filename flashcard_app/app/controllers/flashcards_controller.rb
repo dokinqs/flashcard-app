@@ -5,16 +5,16 @@ class FlashcardsController < ApplicationController
   # GET /flashcards
   def index
     # if current_user
-    # @flashcards = Flashcard.all
+    @flashcards = Flashcard.all
 
-    # render json: @flashcards
-    render json: {
-      flashcards: [
-        {'question': 'q1', 'answer': 'a1'},
-        {'question': 'q2', 'answer': 'a2'},
-        {'question': 'q3', 'answer': 'a3'}
-      ]
-    }.to_json
+    render json: @flashcards
+    # render json: {
+    #   flashcards: [
+    #     {'question': 'q1', 'answer': 'a1'},
+    #     {'question': 'q2', 'answer': 'a2'},
+    #     {'question': 'q3', 'answer': 'a3'}
+    #   ]
+    # }.to_json
 
     # else
 

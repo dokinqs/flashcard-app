@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
 export default class Flashcard extends Component {
@@ -7,22 +7,20 @@ export default class Flashcard extends Component {
     // const { flashcard } = this.props.flashcard;
     console.log('render flashcard: ', this.props.flashcard);
     // const str = this.props.flashcard;
-    console.log(typeof(parseInt(this.props.id)));
-    console.log(parseInt(this.props.id));
-    console.log(this.props.id);
+    // console.log('params.id: ', this.props.params.id);
 
     const loadflashcard = (this.props.id) != 'flashcards' ? (
       <div className="flashcard-div">
         <br />
-        <h2>Flashcard</h2>
-        <div>
+        <h2>Flashcard #{this.props.id}</h2>
+        <div className="flip">
           <p> Q: {this.props.flashcard.question} </p>
+          <p> A: {this.props.flashcard.answer} </p>
         </div>
         {/* <p>q: {str.question}</p> */}
-        <p>id: {this.props.id}</p>
+        {/* <p>id: {this.props.id}</p> */}
 
           {/* <div key={flashcard.id} className='flashcard-list'>
-            <BrowserRouter>
               <Link to ={`flashcards/${flashcard.id}`}>
                 <div key={flashcard.id} >
                   # {flashcard.id}
@@ -30,10 +28,19 @@ export default class Flashcard extends Component {
                   <p>A: {flashcard.answer}</p>
                 </div>
               </Link>
-            </BrowserRouter>
           </div>  */}
-
-    </div>) : (<div> URL error </div>)
+          <div className="lr">
+            <Link to={`/flashcards/${parseInt(this.props.id)-1}`}>« Previous</Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <Link to={`/flashcards/${parseInt(this.props.id)+1}`}>Next »</Link>
+          </div>
+          <br/>
+          <button>Edit</button>
+          <button>Delete</button>
+    </div>) 
+    : (
+      <div> URL error </div>
+    )
 
     return (
       <div>
