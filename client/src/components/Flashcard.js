@@ -59,7 +59,7 @@ export default class Flashcard extends Component {
             <button onClick={this.editClick.bind(this)}>Edit</button>
           </Link>
           <Link to="/flashcards">
-            <button>Delete</button>
+            <button onClick={this.props.del}>Delete</button>
           </Link>
     </div>) 
     : (

@@ -51,6 +51,7 @@ class App extends Component {
     this.handleRegister = this.handleRegister.bind(this);
     this.isLoggedIn = this.isLoggedIn.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    // this.handleDelete = this.handleDelete.bind(this);
   }
   
   isLoggedIn() {
@@ -95,22 +96,44 @@ class App extends Component {
     return flashcard[0];
   }
 
-  createFlashcard(flashcard) {
-    fetch('/flashcards/new', {
-      method: 'POST',
-      body: JSON.stringify(flashcard),
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-    .then(resBody => {
-      this.setState((prevState, props) => {
-        return {
-          flashcards: prevState.flashcard.concat(resBody.data)
-        }
-      })
-    })
-  }
+  // createFlashcard(flashcard) {
+  //   fetch('/flashcards/new', {
+  //     method: 'POST',
+  //     body: JSON.stringify(flashcard),
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     }
+  //   })
+  //   .then(resBody => {
+  //     this.setState((prevState, props) => {
+  //       return {
+  //         flashcards: prevState.flashcard.concat(resBody.data)
+  //       }
+  //     })
+  //   })
+  // }
+
+  // deleteFlashcard(id) {
+  //   fetch(`/flashcards/${id}`, {
+  //     method: 'DELETE'
+  //   })
+  //   .then(resp => {
+  //     if (!resp.ok) throw new Error(resp.statusMessage);
+  //     return resp.json();
+  //   })
+  //   .then(respBody => {
+  //     this.setState((prevState, props) => {
+  //       return {
+  //         flashcards: prevState.flashcards.filter(flashcard => flashcard.id !== id)
+  //       }
+  //     })
+  //   })
+  // }
+
+  // handleDelete(id) {
+  //   this.deleteFlashcard(id);
+  //   window.location.reload();
+  // }
 
   handleChange(e) {
     this.setState({
@@ -235,8 +258,10 @@ class App extends Component {
               {...props}
               flashcard={this.findFlashcard(props.match.params.id)}
               id={props.match.params.id}
+              
             />
             )} />
+            {/* onSubmit={this.updateFlashcard.bind(this)} */}
 
             {/* <Route exact path="/flashcards/:id" render={(props)=> ( */}
             <Route exact path="/flashcards/:id" component={(props)=> (
@@ -245,8 +270,10 @@ class App extends Component {
                 {...props}
                 flashcard={this.findFlashcard(props.match.params.id)}
                 id={props.match.params.id}
+                
               />
             )} />
+            {/* del={() => this.handleDelete(props.match.params.id)} */}
 
             <Route exact path="/flashcards" component={(props)=> (
               <Flashcards
