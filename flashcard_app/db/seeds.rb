@@ -10,7 +10,7 @@ User.destroy_all
 demo_user = User.create({email: "demo@gmail.com", name: "demo", password: 'samplepw', password_confirmation: 'samplepw'})
 
 Flashcard.destroy_all
-Flashcard.create(question: "MVC (Model-View-Controller)", answer: "Software architectural design pattern that separates an application into functionalities with three main logical components: ", user_id: demo_user.id)
+Flashcard.create(question: "MVC (Model-View-Controller)", answer: "Software architectural design pattern that separates an application into functionalities with three main logical components", user_id: demo_user.id)
 Flashcard.create(question: "Webpack", answer: "JavaScript bundler tool used with React that takes modules with dependencies and generates static assets representing those modules in a dependency graph", user_id: demo_user.id)
 Flashcard.create(question: "Big O Notation", answer: "Complexity/worst-case scenario of an algorithm's performance: execution time required or the memory/disk space used", user_id: demo_user.id)
 Flashcard.create(question: "Memoization", answer: "Optimization technique to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again", user_id: demo_user.id)

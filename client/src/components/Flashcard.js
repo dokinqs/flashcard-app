@@ -31,9 +31,9 @@ export default class Flashcard extends Component {
       <div className="flashcard-div">
         <br />
         <h2>Flashcard #{this.props.id}</h2>
-        <div className="flip">
-          <p> Q: {question} </p>
-          <p> A: {answer} </p>
+        <div className="flip flashcard-list">
+          <p> Q: {question} MVC (Model-View-Controller)</p>
+          <p> A: {answer} Software architectural design pattern that separates an application into functionalities with three main logical components</p>
         </div>
         {/* <p>q: {str.question}</p> */}
         {/* <p>id: {this.props.id}</p> */}

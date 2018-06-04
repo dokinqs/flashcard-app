@@ -9,7 +9,7 @@ export default class Flashcards extends Component {
         <div className="flashcards-list-div">
           <br />
           <h2>Flashcards List</h2>
-          <p>( click on one to start studying )</p>
+          <p>click on one to start studying</p>
 
           {_.map(this.props.flashcards, flashcard => (
 
