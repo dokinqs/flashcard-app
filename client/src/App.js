@@ -10,6 +10,7 @@ import RegisterForm from './components/RegisterForm';
 import Flashcard from './components/Flashcard';
 import Flashcards from './components/Flashcards';
 import CreateFlashcard from './components/CreateFlashcard';
+import EditFlashcard from './components/EditFlashcard';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -79,6 +80,7 @@ class App extends Component {
     // const flashcard = _.filter(this.state.flashcards, t => (t.id == parseInt(id, 10)));
     const flashcard = this.state.flashcards.filter(t => (t.id == parseInt(id, 10)));
     console.log('find filtered flashcard: ', flashcard);
+    console.log('type: ', typeof(flashcard))
     return flashcard;
     // return flashcard[0];
   }
@@ -216,6 +218,15 @@ class App extends Component {
                 createFlashcard={this.state.createFlashcard}
                 isLoggedIn={this.state.isLoggedIn}
               />
+            )} />
+
+            <Route exact path="/flashcards/:id/edit" component={(props)=> (
+
+            <EditFlashcard 
+              {...props}
+              flashcard={this.findFlashcard(props.match.params.id)}
+              id={props.match.params.id}
+            />
             )} />
 
             {/* <Route exact path="/flashcards/:id" render={(props)=> ( */}

@@ -3,8 +3,26 @@ import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
 export default class Flashcard extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      isEdit: false
+    }
+  }
+
+  editEvent(id) {
+    this.props.history.push(`/flashcards/${this.props.id}`);
+  }
+
+  editClick() {
+    this.state = {
+      isEdit: true
+    }
+  }
+
   render() {
-    // const { flashcard } = this.props.flashcard;
+    const { question, answer } = this.props.flashcard;
     console.log('render flashcard: ', this.props.flashcard);
     // const str = this.props.flashcard;
     // console.log('params.id: ', this.props.params.id);
@@ -14,8 +32,8 @@ export default class Flashcard extends Component {
         <br />
         <h2>Flashcard #{this.props.id}</h2>
         <div className="flip">
-          <p> Q: {this.props.flashcard.question} </p>
-          <p> A: {this.props.flashcard.answer} </p>
+          <p> Q: {question} </p>
+          <p> A: {answer} </p>
         </div>
         {/* <p>q: {str.question}</p> */}
         {/* <p>id: {this.props.id}</p> */}
@@ -35,8 +53,12 @@ export default class Flashcard extends Component {
             <Link to={`/flashcards/${parseInt(this.props.id)+1}`}>Next »</Link>
           </div>
           <br/>
-          <button>Edit</button>
-          <button>Delete</button>
+          <Link to={`/flashcards/${this.props.id}/edit`}>
+            <button onClick={this.editClick.bind(this)}>Edit</button>
+          </Link>
+          <Link to="/flashcards">
+            <button>Delete</button>
+          </Link>
     </div>) 
     : (
       <div> URL error </div>

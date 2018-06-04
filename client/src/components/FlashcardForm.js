@@ -36,12 +36,12 @@ export default class NewFlashcard extends Component {
 		console.log(this.state.flashcard);
 		console.log(this.props.user);
     const { flashcard, id} = this.state.flashcard
-    
+    const { isEdit } = this.state
 		return (
 			<div className="flashcard-form-div">
-				<h1>{id ? 'Edit this ' : 'Create a New '}  Flashcard</h1>
-          {/* , {this.props.user.username}!</h1> */}
-				<form onSubmit={this.handleSubmit.bind(this)} className={id ? 'edit' : 'create'}>
+				{/* <h1>{isEdit ? 'Edit this ' : 'Create a New '}  Flashcard </h1> */}
+        {/*   {this.props.user.username}</h1> */}
+				<form onSubmit={this.handleSubmit.bind(this)} className={isEdit ? 'edit' : 'create'}>
 					{this.state.redirectHome && <Redirect to='/flashcards' />}
 					<label>
 						<h3>Question</h3>

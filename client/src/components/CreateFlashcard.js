@@ -6,12 +6,14 @@ export default class CreateFlashcard extends Component {
 		render(){
 			const loggedIn = this.props.isLoggedIn;
 			const logConfirm = loggedIn ? (
-
-				<FlashcardForm
+				<div>
+					<h1>Create a Flashcard</h1>
+					<FlashcardForm
 					id='create'
 					func={this.props.onSubmit}
 
-        />
+        	/>
+				</div>
 			) : (<Link to='/login'><h1 class="prompt">Please log in to create a flashcard</h1></Link>);
 
 		return(
