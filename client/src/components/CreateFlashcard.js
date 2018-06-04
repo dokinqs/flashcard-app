@@ -12,7 +12,7 @@ export default class CreateFlashcard extends Component {
 					func={this.props.onSubmit}
 
         />
-			) : (<Link to='/login'><h1 class="prompt">Please log in</h1></Link>);
+			) : (<Link to='/login'><h1 class="prompt">Please log in to create a flashcard</h1></Link>);
 
 		return(
 			<div>

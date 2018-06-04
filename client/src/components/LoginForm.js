@@ -8,17 +8,6 @@ export default class LoginForm extends Component {
     super();
 
     this.state = {
-      flashcards: 
-      [
-        {
-          question: 'Q1: Why are you not logged in',
-          answer: 'A1: You forgot to log in dummy'
-        },
-        {
-          question: 'Q2 You can\'t view flashcards',
-          answer: 'A2 Please log in or else'
-        }
-      ],
       email: '',
       name: '',
       password: '',
@@ -28,6 +17,7 @@ export default class LoginForm extends Component {
     this.getFlashcards = this.getFlashcards.bind(this);
     this.logout = this.logout.bind(this);
     this.login = this.login.bind(this);
+    // this.handleLogin = this.handleLogin.bind(this);
     this.isLoggedIn = this.isLoggedIn.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -94,6 +84,18 @@ export default class LoginForm extends Component {
     .catch(err => console.log(err))
   }
       
+  // handleLogin(creds) {
+  //   this.login(creds);
+  // }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.handleLogin(this.state);
+    this.setState({
+      redirectHome: true
+    });
+  }
+
   componentDidMount() {
     this.isLoggedIn();
     this.getFlashcards();

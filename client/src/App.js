@@ -232,6 +232,7 @@ class App extends Component {
               <Flashcards
                 {...props}
                 flashcards={this.state.flashcards}
+                isLoggedIn={this.state.isLoggedIn}
               />
             )} />
         
