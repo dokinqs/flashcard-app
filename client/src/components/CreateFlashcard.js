@@ -9,12 +9,15 @@ export default class CreateFlashcard extends Component {
 				<div>
 					<h1>Create a Flashcard</h1>
 					<FlashcardForm
-					id='create'
-					func={this.props.onSubmit}
+						func={this.props.onSubmit}
 
         	/>
 				</div>
-			) : (<Link to='/login'><h1 class="prompt">Please log in to create a flashcard</h1></Link>);
+			) : (
+			<Link to='/login'>
+				<h1 class="prompt">Please log in to create a flashcard</h1>
+			</Link>
+			);
 
 		return(
 			<div>

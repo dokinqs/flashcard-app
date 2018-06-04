@@ -12128,3 +12128,246 @@ Processing by FlashcardsController#index as */*
 Completed 200 OK in 69ms (Views: 37.1ms | ActiveRecord: 6.3ms)
 
 
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 09:47:48 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (4.7ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 16ms (Views: 7.0ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 09:48:16 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.5ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 12ms (Views: 9.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 09:48:22 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.6ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 13ms (Views: 6.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 09:48:43 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (1.5ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 17ms (Views: 6.1ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 09:49:34 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.6ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 16ms (Views: 7.0ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 09:49:40 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.5ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 09:49:55 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (38.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (1.7ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 47ms (Views: 5.2ms | ActiveRecord: 40.0ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 09:55:21 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (23.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (1.7ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 52ms (Views: 18.9ms | ActiveRecord: 25.2ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 09:55:52 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (47.6ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 81ms (Views: 19.4ms | ActiveRecord: 54.4ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 09:56:19 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.6ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 14ms (Views: 6.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:01:07 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (1.0ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 19ms (Views: 12.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:03:35 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (1.3ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 22ms (Views: 8.8ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:04:42 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (15.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.6ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 27ms (Views: 8.9ms | ActiveRecord: 16.1ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:04:49 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.5ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 16ms (Views: 11.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:06:20 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (56.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (1.1ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 76ms (Views: 15.8ms | ActiveRecord: 57.2ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:16:38 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (10.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (15.5ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 79ms (Views: 34.5ms | ActiveRecord: 25.5ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:20:00 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (96.3ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 369ms (Views: 23.2ms | ActiveRecord: 325.4ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:20:05 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (23.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.6ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 45ms (Views: 13.6ms | ActiveRecord: 23.9ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:20:26 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (48.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.6ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 67ms (Views: 11.9ms | ActiveRecord: 49.1ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:26:19 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (30.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (106.6ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 188ms (Views: 34.2ms | ActiveRecord: 136.6ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:26:57 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.7ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 47ms (Views: 26.6ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:27:06 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (86.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (43.4ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 158ms (Views: 24.6ms | ActiveRecord: 130.2ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:48:51 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (2.2ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 57ms (Views: 30.3ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:49:12 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.6ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 44ms (Views: 24.4ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:50:03 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.5ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 47ms (Views: 31.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 10:51:20 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.6ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 35ms (Views: 25.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-04 11:03:26 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (13.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (1.0ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 80ms (Views: 35.5ms | ActiveRecord: 14.2ms)
+
+

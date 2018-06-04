@@ -39,3 +39,5 @@ public/
 test/
 tmp/
 vendor/
+
+flashcard_app/log/development.log

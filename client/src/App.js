@@ -19,7 +19,16 @@ class App extends Component {
     super();
 
     this.state = {
-      flashcards: [],
+      flashcards: [
+      {
+        question: 'MVC (Model-View-Controller)',
+        answer: 'Software architectural design pattern that separates an application into functionalities with three main logical components'
+      },
+      {
+        question: 'Webpack',
+        answer: 'JavaScript bundler tool used with React that takes modules with dependencies and generates static assets representing those modules in a dependency graph'
+      }
+      ],
       // [
       //   {
       //     question: 'qqq',
@@ -81,8 +90,9 @@ class App extends Component {
     const flashcard = this.state.flashcards.filter(t => (t.id == parseInt(id, 10)));
     console.log('find filtered flashcard: ', flashcard);
     console.log('type: ', typeof(flashcard))
-    return flashcard;
-    // return flashcard[0];
+    console.log(flashcard[0])
+    // return flashcard;
+    return flashcard[0];
   }
 
   createFlashcard(f) {
@@ -214,8 +224,7 @@ class App extends Component {
             <Route exact path="/flashcards/new" component={(props)=> (
               <CreateFlashcard
                 {...props}
-                handleCreateFlashcard={this.handleCreateFlashcard} 
-                createFlashcard={this.state.createFlashcard}
+                onSubmit={this.createFlashcard.bind(this)}
                 isLoggedIn={this.state.isLoggedIn}
               />
             )} />

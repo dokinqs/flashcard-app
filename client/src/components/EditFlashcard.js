@@ -9,7 +9,6 @@ export default class EditFlashcard extends Component {
         <h1>Edit Flashcard #{id}</h1>
         <FlashcardForm 
           flashcard={this.props.flashcard} 
-          id='edit'
           func={this.props.onSubmit}
 
         />

@@ -7,8 +7,8 @@ export default class NewFlashcard extends Component {
 		super(props);
 		this.state = {
 			flashcard: Object.assign({
-				question: ''
-
+				question: '',
+				answer: ''
 			}, props.flashcard)
 		}
 	}
@@ -25,8 +25,7 @@ export default class NewFlashcard extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		// this.props.func(this.state.flashcard);
-		window.location.reload();
+		this.props.createf(this.state.flashcard);
 		this.setState({
 			redirectHome: true
 		});
@@ -35,22 +34,22 @@ export default class NewFlashcard extends Component {
   render() {
 		console.log(this.state.flashcard);
 		console.log(this.props.user);
-    const { flashcard, id} = this.state.flashcard
-    const { isEdit } = this.state
+    const { flashcard, id } = this.state
+    const { isEdit } = this.props
 		return (
 			<div className="flashcard-form-div">
 				{/* <h1>{isEdit ? 'Edit this ' : 'Create a New '}  Flashcard </h1> */}
         {/*   {this.props.user.username}</h1> */}
-				<form onSubmit={this.handleSubmit.bind(this)} className={isEdit ? 'edit' : 'create'}>
+				<form onSubmit={this.handleSubmit.bind(this)}>
 					{this.state.redirectHome && <Redirect to='/flashcards' />}
+
 					<label>
 						<h3>Question</h3>
 						<textarea rows='4' cols ='40'
 							name='question'
-              
+              value={flashcard.question}
               placeholder="question"
 							onChange={this.handleChange.bind(this)} 
-            
             />
 					</label><br/>
           {/* value="question" */}
@@ -59,14 +58,17 @@ export default class NewFlashcard extends Component {
 						<h3>Answer</h3>
 						<textarea rows='4' cols='40'
 							name='answer'
+							value={flashcard.answer}
               placeholder="answer"
 							onChange={this.handleChange.bind(this)} 
-              
             />
 					</label><br/>
           {/* value="answer" */}
 
-					<button className='button' type='submit'>{id ? 'Edit' : 'Create'}</button>
+					<button className='button' type='submit'>
+						{/* {isEdit ? 'Edit' : 'Create'} */}
+						Submit
+						</button>
 
 				</form>
 			</div>

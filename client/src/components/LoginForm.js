@@ -94,6 +94,7 @@ export default class LoginForm extends Component {
     this.setState({
       redirectHome: true
     });
+    window.location.reload();
   }
 
   componentDidMount() {
