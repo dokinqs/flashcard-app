@@ -51,7 +51,7 @@ class App extends Component {
     this.handleRegister = this.handleRegister.bind(this);
     this.isLoggedIn = this.isLoggedIn.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    // this.handleDelete = this.handleDelete.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
   
   isLoggedIn() {
@@ -66,6 +66,7 @@ class App extends Component {
     console.log('getting flashcards');
     const jwt = localStorage.getItem("jwt");
     const init = { 
+      method: 'get',
       headers: {"Authorization": `Bearer ${jwt}`}
     }
 
@@ -113,27 +114,30 @@ class App extends Component {
   //   })
   // }
 
-  // deleteFlashcard(id) {
-  //   fetch(`/flashcards/${id}`, {
-  //     method: 'DELETE'
-  //   })
-  //   .then(resp => {
-  //     if (!resp.ok) throw new Error(resp.statusMessage);
-  //     return resp.json();
-  //   })
-  //   .then(respBody => {
-  //     this.setState((prevState, props) => {
-  //       return {
-  //         flashcards: prevState.flashcards.filter(flashcard => flashcard.id !== id)
-  //       }
-  //     })
-  //   })
-  // }
+  deleteFlashcard(id) {
+    const jwt = localStorage.getItem("jwt");
+    fetch(`/flashcards/${id}`, {
+      // fetch(`/flashcards/1`, {
+      method: 'DELETE',
+      headers: {"Authorization": `Bearer ${jwt}`}
+    })
+    .then(resp => {
+      // if (!resp.ok) throw new Error(resp.statusMessage);
+      return resp.json();
+    })
+    .then(respBody => {
+      this.setState((prevState, props) => {
+        return {
+          flashcards: prevState.flashcards.filter(flashcard => flashcard.id !== id)
+        }
+      })
+    })
+  }
 
-  // handleDelete(id) {
-  //   this.deleteFlashcard(id);
-  //   window.location.reload();
-  // }
+  handleDelete(id) {
+    this.deleteFlashcard(id);
+    // window.location.reload();
+  }
 
   handleChange(e) {
     this.setState({
@@ -270,10 +274,10 @@ class App extends Component {
                 {...props}
                 flashcard={this.findFlashcard(props.match.params.id)}
                 id={props.match.params.id}
-                
+                del={this.handleDelete(props.match.params.id)}
               />
             )} />
-            {/* del={() => this.handleDelete(props.match.params.id)} */}
+
 
             <Route exact path="/flashcards" component={(props)=> (
               <Flashcards

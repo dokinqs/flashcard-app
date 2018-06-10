@@ -24,7 +24,7 @@ export default class Flashcards extends Component {
             </div> 
         ))}
       </div>
-      ) : (<Link to='/login'><h1 class="prompt">Please log in to see flashcards</h1></Link>);
+      ) : (<Link to='/login'><h1 className="prompt">Please log in to see flashcards</h1></Link>);
     return (
       <div>
 				{logConfirm}

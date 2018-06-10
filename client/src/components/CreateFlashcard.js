@@ -15,7 +15,7 @@ export default class CreateFlashcard extends Component {
 				</div>
 			) : (
 			<Link to='/login'>
-				<h1 class="prompt">Please log in to create a flashcard</h1>
+				<h1 className="prompt">Please log in to create a flashcard</h1>
 			</Link>
 			);
 

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default class Home extends Component {
   render() {
     return (
-      <div class="home-page">
+      <div className="home-page">
         {/* <Nav /> */}
         <h1 className="font">Flashcardzzz</h1>
         <br/><br/>
