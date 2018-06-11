@@ -12,8 +12,8 @@
  * [Obstacles](#obstacles)
  * [Code Snippet](#code-snippet)
   
-## Heroku Deployed Site
-https://enervated-doge-20186.herokuapp.com/
+## Deployed Site (Heroku and Surge)
+https://rapid-bedroom.surge.sh/
 
 ## Summary
 Flashcardzzz is a flashcard application for people to create and learn about computer programming. If logged in, the user can read, create, edit, delete, and like flashcards. 
