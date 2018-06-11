@@ -17065,3 +17065,30 @@ Processing by FlashcardsController#index as */*
 Completed 200 OK in 12ms (Views: 7.7ms | ActiveRecord: 1.9ms)
 
 
+Started DELETE "/flashcards/13" for 127.0.0.1 at 2018-06-11 12:29:33 -0400
+Processing by FlashcardsController#destroy as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (23.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (0.5ms)[0m  [1m[34mSELECT  "flashcards".* FROM "flashcards" WHERE "flashcards"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/flashcards_controller.rb:62
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/flashcards_controller.rb:51
+  [1m[36mTagging Load (4.4ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."flashcard_id" = $1[0m  [["flashcard_id", 13]]
+  ↳ app/controllers/flashcards_controller.rb:51
+  [1m[36mFlashcard Destroy (9.5ms)[0m  [1m[31mDELETE FROM "flashcards" WHERE "flashcards"."id" = $1[0m  [["id", 13]]
+  ↳ app/controllers/flashcards_controller.rb:51
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/flashcards_controller.rb:51
+Completed 204 No Content in 245ms (ActiveRecord: 76.8ms)
+
+
+Started GET "/flashcards" for 127.0.0.1 at 2018-06-11 12:29:34 -0400
+Processing by FlashcardsController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mFlashcard Load (1.4ms)[0m  [1m[34mSELECT "flashcards".* FROM "flashcards"[0m
+  ↳ app/controllers/flashcards_controller.rb:10
+Completed 200 OK in 12ms (Views: 7.2ms | ActiveRecord: 2.0ms)
+
+
