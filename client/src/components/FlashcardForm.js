@@ -28,6 +28,7 @@ export default class NewFlashcard extends Component {
 		this.setState({
 			redirectHome: true
 		});
+		window.location.reload();
   }  
   
   render() {
@@ -35,11 +36,9 @@ export default class NewFlashcard extends Component {
 		console.log(this.props.user);
 		// const { flashcard, id } = this.state
 		const { question, answer } = this.state.flashcard
-    const { isEdit } = this.props
+    // const { isEdit } = this.props
 		return (
 			<div className="flashcard-form-div">
-				{/* <h1>{isEdit ? 'Edit this ' : 'Create a New '}  Flashcard </h1> */}
-        {/*   {this.props.user.username}</h1> */}
 				<form onSubmit={this.handleSubmit.bind(this)}>
 					{this.state.redirectHome && <Redirect to='/flashcards' />}
 
@@ -64,8 +63,8 @@ export default class NewFlashcard extends Component {
 					</label><br/>
 
 					<button className='button' type='submit'>
-						{isEdit ? 'Edit' : 'Create'}
-						{/* Submit */}
+						{/* {isEdit ? 'Edit' : 'Create'} */}
+						Submit
 						</button>
 
 				</form>

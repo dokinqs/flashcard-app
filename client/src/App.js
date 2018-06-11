@@ -17,26 +17,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      flashcards: [
-      {
-        question: 'MVC (Model-View-Controller)',
-        answer: 'Software architectural design pattern that separates an application into functionalities with three main logical components'
-      },
-      {
-        question: 'Webpack',
-        answer: 'JavaScript bundler tool used with React that takes modules with dependencies and generates static assets representing those modules in a dependency graph'
-      }
-      ],
-      // [
-      //   {
-      //     question: 'qqq',
-      //     answer: 'aaa'
-      //   },
-      //   {
-      //     question: 'qqq2',
-      //     answer: 'aaa2'
-      //   }
-      // ],
+      flashcards: [],
       email: '',
       name: '',
       password: '',
@@ -210,32 +191,20 @@ class App extends Component {
                     }
     fetch(url, init)
     .then(res => res.json())
-    .then(res => localStorage.setItem("jwt", res.jwt))
+    // .then(res => localStorage.setItem("jwt", res.jwt))
     .then(() => this.setState({
       isLoggedIn: true
     }))
     .then(() => this.getFlashcards())
-    .catch(err => console.log(err))
+    .catch(err => {
+      console.log(err)
+      localStorage.removeItem('jwt');
+      this.setState({
+        isLoggedIn: null
+      })
+    })
   }
-  //   fetch('/register', {
-  //     method: 'POST',
-  //     body: JSON.stringify(creds),
-  //     headers: {
-  //       'content-type': 'application/json'
-  //     }
-  //   })
-  //     .then(resp => {
-  //       if (!resp.ok) throw new Error(resp.statusMessage);
-  //       return resp.json();
-  //     })
-  //     .then(respBody => {
-  //       console.log(respBody);
-  //       localStorage.setItem('authToken', respBody.token);
-  //       this.setState({
-  //         currentUser: jwt.decodeToken(respBody.token).payload
-  //       })
-  //     })
-  // }
+
 
   handleRegister(creds) {
     this.registerReq(creds);
@@ -248,10 +217,6 @@ class App extends Component {
   }
 
   render() {
-    // const { flashcards = []} = this.state;
-    // const display = this.state.isLoggedIn ? this.state.flashcards.map(flashcard => {
-    //   return <p key={flashcard.id}> QUESTION:{flashcard.question}, ANSWER:{flashcard.answer} </p>
-    // }) : "UNAUTHORIZED"
     console.log('rendered typeof this.state.flashcards: ', typeof(this.state.flashcards));
     console.log('fc ', this.state.flashcards);
     return (
@@ -294,7 +259,6 @@ class App extends Component {
             />
             )} />
 
-            {/* <Route exact path="/flashcards/:id" render={(props)=> ( */}
             <Route exact path="/flashcards/:id" component={(props)=> (
 
               <Flashcard 
