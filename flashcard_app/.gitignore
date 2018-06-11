@@ -42,3 +42,4 @@ vendor/
 
 ./log/development.log
 ./tmp/*
+*log
