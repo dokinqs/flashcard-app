@@ -100,7 +100,7 @@ class App extends Component {
 
   createFlashcard(flashcard) {
     const flashcardjson = {"question": flashcard.question, "answer": flashcard.answer, "user_id": 1}
-    const jwt = localStorage.getItem("jwt")
+    const jwt = localStorage.getItem("jwt");
     return fetch('/flashcards', {
       method: 'POST',
       body: JSON.stringify(flashcardjson),
@@ -125,6 +125,24 @@ class App extends Component {
         }
       })
 
+    })
+  }
+
+  updateFlashcard(flashcard) {
+    const jwt = localStorage.getItem("jwt");
+    const options = {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwt}`
+      },
+      body: JSON.stringify(flashcard)
+    };
+    const URL = `/flashcards/${flashcard.id}`;
+    fetch(URL, options).then(resp => {
+      if (!resp.ok) throw new Error(resp.statusMessage);
+      return resp.json();
     })
   }
 
@@ -275,10 +293,9 @@ class App extends Component {
               {...props}
               flashcard={this.findFlashcard(props.match.params.id)}
               id={props.match.params.id}
-              
+              onSubmit={this.updateFlashcard.bind(this)}
             />
             )} />
-            {/* onSubmit={this.updateFlashcard.bind(this)} */}
 
             {/* <Route exact path="/flashcards/:id" render={(props)=> ( */}
             <Route exact path="/flashcards/:id" component={(props)=> (
