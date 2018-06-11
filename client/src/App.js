@@ -67,7 +67,9 @@ class App extends Component {
     const jwt = localStorage.getItem("jwt");
     const init = { 
       method: 'get',
-      headers: {"Authorization": `Bearer ${jwt}`}
+      headers: {"Authorization": `Bearer ${jwt}`},
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
     }
 
     fetch(`${BASE_URL}/flashcards`, init)
@@ -122,8 +124,8 @@ class App extends Component {
       headers: {"Authorization": `Bearer ${jwt}`}
     })
     .then(resp => {
-      // if (!resp.ok) throw new Error(resp.statusMessage);
-      return resp.json();
+      if (!resp.ok) throw new Error(resp.statusMessage)
+      return resp.json()
     })
     .then(respBody => {
       this.setState((prevState, props) => {
@@ -136,7 +138,7 @@ class App extends Component {
 
   handleDelete(id) {
     this.deleteFlashcard(id);
-    // window.location.reload();
+    window.location.reload();
   }
 
   handleChange(e) {
@@ -274,7 +276,7 @@ class App extends Component {
                 {...props}
                 flashcard={this.findFlashcard(props.match.params.id)}
                 id={props.match.params.id}
-                del={this.handleDelete(props.match.params.id)}
+                del={() => this.handleDelete(props.match.params.id)}
               />
             )} />
 
