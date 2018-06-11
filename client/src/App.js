@@ -93,33 +93,44 @@ class App extends Component {
     // const flashcard = _.filter(this.state.flashcards, t => (t.id == parseInt(id, 10)));
     const flashcard = this.state.flashcards.filter(t => (t.id == parseInt(id, 10)));
     console.log('find filtered flashcard: ', flashcard);
-    console.log('type: ', typeof(flashcard))
-    console.log(flashcard[0])
-    // return flashcard;
+    console.log('type: ', typeof(flashcard));
+    console.log(flashcard[0]);
     return flashcard[0];
   }
 
-  // createFlashcard(flashcard) {
-  //   fetch('/flashcards/new', {
-  //     method: 'POST',
-  //     body: JSON.stringify(flashcard),
-  //     headers: {
-  //       'content-type': 'application/json'
-  //     }
-  //   })
-  //   .then(resBody => {
-  //     this.setState((prevState, props) => {
-  //       return {
-  //         flashcards: prevState.flashcard.concat(resBody.data)
-  //       }
-  //     })
-  //   })
-  // }
+  createFlashcard(flashcard) {
+    const flashcardjson = {"question": flashcard.question, "answer": flashcard.answer, "user_id": 1}
+    const jwt = localStorage.getItem("jwt")
+    return fetch('/flashcards', {
+      method: 'POST',
+      body: JSON.stringify(flashcardjson),
+      mode: 'cors',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${jwt}`
+      }
+    })
+    // .then(resp => {
+    //   if (!resp.ok) throw new Error(resp.statusMessage);
+    //   return resp.json();
+    // })
+    .then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(resBody => {
+      this.setState((prevState, props) => {
+        console.log('prevState.flashcards: ', prevState.flashcards);
+        console.log('resBody: ', resBody);
+        return {
+          flashcards: prevState.flashcards.concat(resBody)
+        }
+      })
+
+    })
+  }
 
   deleteFlashcard(id) {
     const jwt = localStorage.getItem("jwt");
     fetch(`/flashcards/${id}`, {
-      // fetch(`/flashcards/1`, {
       method: 'DELETE',
       headers: {"Authorization": `Bearer ${jwt}`}
     })

@@ -13,15 +13,14 @@ export default class Flashcards extends Component {
 
           {_.map(this.props.flashcards, flashcard => (
 
-            <div key={flashcard.id} className='flashcard-list'>
               <Link to={`/flashcards/${flashcard.id}`}>
-                <div key={flashcard.id} >
+                <div key={flashcard.id} className='flashcard-list'>
                   # {flashcard.id}
                   <p className="q">Q: {flashcard.question}</p>
                   <p>A: {flashcard.answer}</p>
                 </div>
               </Link>
-            </div> 
+
         ))}
       </div>
       ) : (<Link to='/login'><h1 className="prompt">Please log in to see flashcards</h1></Link>);

@@ -34,7 +34,8 @@ export default class NewFlashcard extends Component {
   render() {
 		console.log(this.state.flashcard);
 		console.log(this.props.user);
-    const { flashcard, id } = this.state
+		// const { flashcard, id } = this.state
+		const { question, answer } = this.state.flashcard
     const { isEdit } = this.props
 		return (
 			<div className="flashcard-form-div">
@@ -47,23 +48,21 @@ export default class NewFlashcard extends Component {
 						<h3>Question</h3>
 						<textarea rows='4' cols ='40'
 							name='question'
-              value={flashcard.question}
+              value={question}
               placeholder="question"
 							onChange={this.handleChange.bind(this)} 
             />
 					</label><br/>
-          {/* value="question" */}
 
 					<label>
 						<h3>Answer</h3>
 						<textarea rows='4' cols='40'
 							name='answer'
-							value={flashcard.answer}
+							value={answer}
               placeholder="answer"
 							onChange={this.handleChange.bind(this)} 
             />
 					</label><br/>
-          {/* value="answer" */}
 
 					<button className='button' type='submit'>
 						{/* {isEdit ? 'Edit' : 'Create'} */}
