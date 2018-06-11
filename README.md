@@ -13,7 +13,7 @@
  * [Code Snippet](#code-snippet)
   
 ## Heroku Deployed Site
-
+https://enervated-doge-20186.herokuapp.com/
 
 ## Summary
 Flashcardzzz is a flashcard application for people to create and learn about computer programming. If logged in, the user can read, create, edit, delete, and like flashcards. 
@@ -22,6 +22,7 @@ Flashcardzzz is a flashcard application for people to create and learn about com
 - On the landing page of the website, cards ordered by time added will be listed.
 
 - A new user can register and a returning user can log in or log out. 
+- Or, log in with the demo account.
 
 - On the home page after login, a personalized page will show the user's liked cards and created cards.
 
@@ -36,9 +37,8 @@ Flashcardzzz is a flashcard application for people to create and learn about com
 ## Technologies <a id="technologies"></a>
 - React
 - Rails
-- Devise
+- Devise Knock gem
 - PostgreSQL
-- Quizlet API
 
 ## Installation <a id="installation"></a>
 - in client, npm start
@@ -68,13 +68,13 @@ Flashcardzzz is a flashcard application for people to create and learn about com
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Setup Server |  | 1hr| 1hr | 1hr |
-| CRUD (Rails/React) | H | 30hrs | 30hrs |  |
-| API | H | 10hrs| 9hrs |  |
-| Auth | H | 10hrs| 12hrs |  |
-| Navigation | H | 10hrs | 10hrs |  |
-| Styling | L | 5hrs| 8hrs |  |
+| CRUD (Rails/React) | H | 30hrs | 30hrs | 30hrs |
+| API | H | 10hrs| 9hrs | 9hrs |
+| Auth | H | 10hrs| 12hrs | 12hrs |
+| Navigation | H | 10hrs | 10hrs | 10hrs |
+| Styling | L | 5hrs| 8hrs | 8hrs |
 |  |  | |  |  |
-| Total |  | 70hrs | 69hrs |  |
+| Total |  | 70hrs | 69hrs | 69hrs |
 
 ## Obstacles <a id="obstacles"></a>
 stuck on database for a long time
@@ -82,5 +82,21 @@ one error would take days to debug
 
 ## Code-snippet <a id="code-snippet"></a>
 ```
-
+login() {
+  const url = `${BASE_URL}/user_token`;
+  const body = {"auth": {"email": this.state.email, "password": this.state.password} }
+  const init = { method: 'POST',
+                  headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+                  mode: 'cors',
+                  body: JSON.stringify(body),
+                  }
+  fetch(url, init)
+  .then(res => res.json())
+  .then(res => localStorage.setItem("jwt", res.jwt))
+  .then(() => this.setState({
+    isLoggedIn: true
+  }))
+  .then(() => this.getFlashcards())
+  .catch(err => console.log(err))
+}
 ```
