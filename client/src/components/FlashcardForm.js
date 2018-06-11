@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect, Link } from 'react-router-dom';
-import _ from 'lodash';
+import { Redirect } from 'react-router-dom';
 
 export default class NewFlashcard extends Component {
 	constructor(props) {
@@ -65,8 +64,8 @@ export default class NewFlashcard extends Component {
 					</label><br/>
 
 					<button className='button' type='submit'>
-						{/* {isEdit ? 'Edit' : 'Create'} */}
-						Submit
+						{isEdit ? 'Edit' : 'Create'}
+						{/* Submit */}
 						</button>
 
 				</form>

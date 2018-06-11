@@ -63,6 +63,7 @@ export default class LoginForm extends Component {
       flashcards: [],
       redirectHome: true
     })
+    window.location.reload();
   }
 
   login() {
@@ -81,6 +82,7 @@ export default class LoginForm extends Component {
       redirectHome: true
     }))
     .then(() => this.getFlashcards())
+    .then(() => window.location.reload())
     .catch(err => console.log(err))
   }
       

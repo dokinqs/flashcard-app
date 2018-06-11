@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
-import _ from 'lodash';
-import jwt from 'jwt-js';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import LoginForm from './components/LoginForm';
@@ -15,8 +13,8 @@ import EditFlashcard from './components/EditFlashcard';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       flashcards: [
@@ -91,7 +89,7 @@ class App extends Component {
   findFlashcard(id) {
     console.log('find flashcards.. ', this.state.flashcards);
     // const flashcard = _.filter(this.state.flashcards, t => (t.id == parseInt(id, 10)));
-    const flashcard = this.state.flashcards.filter(t => (t.id == parseInt(id, 10)));
+    const flashcard = this.state.flashcards.filter(t => (t.id === parseInt(id, 10)));
     console.log('find filtered flashcard: ', flashcard);
     console.log('type: ', typeof(flashcard));
     console.log(flashcard[0]);
@@ -255,8 +253,7 @@ class App extends Component {
     //   return <p key={flashcard.id}> QUESTION:{flashcard.question}, ANSWER:{flashcard.answer} </p>
     // }) : "UNAUTHORIZED"
     console.log('rendered typeof this.state.flashcards: ', typeof(this.state.flashcards));
-    const { flashcards } = this.state;
-    console.log('fc ',this.state.flashcards);
+    console.log('fc ', this.state.flashcards);
     return (
       <div className="App">
           <Nav />
@@ -319,7 +316,9 @@ class App extends Component {
         
             <Route exact path='/' component={(props) => (
               <Home
-
+                {...props}
+                name={this.state.name}
+                isLoggedIn={this.state.isLoggedIn}
               /> 
             )} />
         </Switch>

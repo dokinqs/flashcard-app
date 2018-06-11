@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import _ from 'lodash';
 
 export default class Flashcard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       isEdit: false
@@ -16,9 +15,9 @@ export default class Flashcard extends Component {
   }
 
   editClick() {
-    this.state = {
+    this.setState({
       isEdit: true
-    }
+    })
   }
 
   render() {
@@ -27,7 +26,7 @@ export default class Flashcard extends Component {
     // const str = this.props.flashcard;
     // console.log('params.id: ', this.props.params.id);
 
-    const loadflashcard = (this.props.id) != 'flashcards' ? (
+    const loadflashcard = this.props.id !== 0 ? (
       <div className="flashcard-div">
         <br />
         <h2>Flashcard #{this.props.id}</h2>
@@ -37,30 +36,20 @@ export default class Flashcard extends Component {
           <p> A: {answer} 
           </p>
         </div>
-        {/* <p>q: {str.question}</p> */}
-        {/* <p>id: {this.props.id}</p> */}
 
-          {/* <div key={flashcard.id} className='flashcard-list'>
-              <Link to ={`flashcards/${flashcard.id}`}>
-                <div key={flashcard.id} >
-                  # {flashcard.id}
-                  <p>Q: {flashcard.question}</p>
-                  <p>A: {flashcard.answer}</p>
-                </div>
-              </Link>
-          </div>  */}
-          <div className="lr">
-            <Link to={`/flashcards/${parseInt(this.props.id)-1}`}>« Previous</Link>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <Link to={`/flashcards/${parseInt(this.props.id)+1}`}>Next »</Link>
-          </div>
-          <br/>
-          <Link to={`/flashcards/${this.props.id}/edit`}>
-            <button onClick={this.editClick.bind(this)}>Edit</button>
-          </Link>
-          <Link to="/flashcards">
-            <button onClick={this.props.del}>Delete</button>
-          </Link>
+        <div className="lr">
+          <Link to={`/flashcards/${parseInt(this.props.id, 10) -1}`}>« Previous</Link>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <Link to={`/flashcards/${parseInt(this.props.id, 10) +1}`}>Next »</Link>
+        </div>
+
+        <br/>
+        <Link to={`/flashcards/${this.props.id}/edit`}>
+          <button onClick={this.editClick.bind(this)}>Edit</button>
+        </Link>
+        <Link to="/flashcards">
+          <button onClick={this.props.del}>Delete</button>
+        </Link>
     </div>) 
     : (
       <div> URL error </div>
